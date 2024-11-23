@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Collection</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .book-info {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Collection</h1>
+    <div class="book-info">
+        <h2>Title of the First Book:</h2>
+        <p id="firstBookTitle"></p>
+    </div>
+    <div class="book-info">
+        <h2>Author of the Second Book:</h2>
+        <p id="secondBookAuthor"></p>
+    </div>
+    <div class="book-info">
+        <h2>Genres of All Books:</h2>
+        <p id="allGenres"></p>
+    </div>
+
+    <script>
+        
+        const booksData = {
+            "books": [
+                {
+                    "title": "The Great Gatsby",
+                    "author": "F. Scott Fitzgerald",
+                    "publicationYear": 1925,
+                    "genres": ["Fiction", "Classics"]
+                },
+                {
+                    "title": "To Kill a Mockingbird",
+                    "author": "Harper Lee",
+                    "publicationYear": 1960,
+                    "genres": ["Fiction", "Coming-of-Age"]
+                }
+            ]
+        };
+
+        
+        $('#firstBookTitle').text(booksData.books[0].title);
+
+        
+        $('#secondBookAuthor').text(booksData.books[1].author);
+
+        
+        const allGenres = booksData.books.map(book => book.genres.join(", ")).join("; ");
+        $('#allGenres').text(allGenres);
+    </script>
+</body>
+</html>
